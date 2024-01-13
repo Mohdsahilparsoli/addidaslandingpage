@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate css</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #8C6C79;
+        }
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            left: 0;
+
+
+        }
+
+        .header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+        }
+
+        .header nav ul {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            list-style: none;
+        }
+
+        .header nav ul li a {
+            display: flex;
+            height: 40px;
+            width: 40px;
+            justify-content: center;
+            text-decoration: none;
+            color: #8C6C79;
+            border-radius: 50%;
+            align-items: center;
+            background-color: #fff;
+            font-size: 16px;
+        }
+
+        .left span {
+            color: #fff;
+        }
+
+        .left span b {
+            font-size: 25px;
+            line-height: 30px;
+        }
+
+
+        .left span sup {
+            font-size: 18px;
+        }
+
+        .left {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .left a {
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .maintitle {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: -20px;
+        }
+
+        .maintitle span {
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .img-hero {
+            position: absolute;
+            top: -100%;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 50%;
+        }
+
+        .centertitle h1 {
+            color: #f2d16b;
+            font-weight: 900;
+            letter-spacing: -10px;
+            font-size: 280px;
+            text-align: center;
+        }
+
+        .centertitle button {
+            display: block;
+            padding: 10px 30px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            background-color: #f2d16b;
+            text-align: center;
+            text-transform: uppercase;
+            color: #000;
+            border: none;
+            outline: none;
+            margin: 0 auto;
+            z-index: 999;
+            position: relative;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+            padding-bottom: 0px;
+            align-items: flex-end;
+        }
+
+        .mainimg-data img {
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .mainimg-data {
+            text-align: center;
+        }
+
+        .leftsize span {
+            font-size: 16px;
+            color: #ffff;
+            font-weight: 400;
+        }
+
+        .leftsize {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .leftsize span.line {
+            width: 60px;
+            height: 2px;
+            background-color: #fff;
+        }
+
+        .leftsize span.size {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+        }
+
+        .rightimg {
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+
+        }
+
+        .tooglebtn {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .swiper-button-prev,
+        .swiper-rtl .swiper-button-next,
+        .tooglebtn .swiper-button-next,
+        .tooglebtn .swiper-button-next {
+            position: static;
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            height: auto;
+            width: auto;
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .centertitle {
+            padding: 70px 15px;
+        }
+.mainimg-data img {
+    cursor: pointer;
+}
+        ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .centertitle ul li {
+            list-style: none;
+
+        }
+
+        .centertitle ul li a {
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .centertitle ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        .animat {
+            padding: 0px 20px;
+        }
+        body{
+            overflow: hidden;
+        }
+
+       
+        /* swipper css */
+    </style>
+
+</head>
+
+<body>
+
+
+    <section class="animat">
+        <div class="maindiv">
+            <div class="overlay first" style="height:25%; top: 0%;"></div>
+            <div class="overlay second" style="height:25%; top: 25%;"></div>
+            <div class="overlay third" style="height:25%; top: 50%;"></div>
+            <div class="overlay four" style="height:25%; top: 75%;"></div>
+            <div class="header">
+                <nav>
+                    <div class="left"> <span> <b>adidas</b><sup>®</sup></span> <a href="#"><i
+                                class="fa-solid fa-bars"></i></a></div>
+                    <div class="right">
+                        <ul>
+                            <li class="search"> <a href="javascript:void(0)"><i
+                                        class="fa-solid fa-magnifying-glass"></i></a></li>
+                            <li class="baskit"><a href="javascript:void(0)"> <i
+                                        class="fa-solid fa-bag-shopping"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="maintitle">
+                <span>THE</span>
+                <span>PURE</span>
+                <span>COMFORT</span>
+                <span>IS</span>
+                <span>HERE</span>
+                <span> !</span>
+            </div>
+
+            <div class="centertitle">
+                <ul class="share">
+                    <li class="facebook"><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li class="insta"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+
+                </ul>
+                <h1>adidas.</h1>
+                <button>reserve now</button>
+                <img src="hero4.png" alt="heroimg" class="img-hero">
+            </div>
+            <div class="footer">
+                <div class="leftsize"> <span class="data">Size :</span> <span class="line"></span> <span class="size seven">7</span> <span
+                        class="size engt">8</span > <span class="size  nine ">9</span> </div>
+                <div class="rightimg">
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="mainimg-data"> <img src="hero4.png" alt=""></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="mainimg-data"> <img src="hero1.png" alt=""></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="mainimg-data"> <img src="hero3.png" alt=""></div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="mainimg-data"> <img src="hero2.png" alt=""></div>
+                            </div>
+                           
+
+                            <div class="swiper-slide">
+                                <div class="mainimg-data"> <img src="hero5.png" alt=""></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tooglebtn">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <script>
+
+
+
+        gsap.to(".first",{
+            ease: 'power1.inOut',
+            width:0,
+            delay:0.3,
+            duration:2
+        }
+        )
+
+        gsap.to(".second",{
+            ease: 'power1.inOut',
+            width:0,
+            delay:0.5,
+            duration:2
+
+        }
+        )
+
+
+        gsap.to(".third",{
+            ease: 'power1.inOut',
+            width:0,
+            delay:0.7,
+            duration:2
+
+        }
+        )
+
+
+        gsap.to(".four",{
+            ease: 'power1.inOut',
+            width:0,
+            delay:0.9,
+            duration:2
+
+        }
+        )
+
+
+        gsap.from(".left ", {
+            ease: 'power1.inOut',
+            delay: 0.9,
+            x: -50,
+            opacity: 0.5,
+            duration: 3
+        })
+
+        gsap.from(".search", {
+            ease: 'power1.inOut',
+            x: -30,
+            delay: 1,
+            duration: 1
+        })
+
+        gsap.from(".baskit", {
+            ease: 'power1.inOut',
+            x: -30,
+            delay: 1.25,
+            duration: 1
+        })
+
+        gsap.from("li.facebook",{
+            ease: 'power1.inOut',
+            x: -50,
+            delay: 2.10,
+            duration: 1.5
+        })
+        gsap.from("li.insta",{
+            ease: 'power1.inOut',
+            x: -50,
+            delay: 2.20,
+            duration: 1.5
+        })
+                gsap.from("li.twitter",{
+            ease: 'power1.inOut',
+            x: -50,
+            delay: 2.30,
+            duration: 1.5
+        })
+
+
+        gsap.from(".leftsize .data , .leftsize .line ",{
+            ease: 'power1.inOut',
+            x: -50,
+            opacity:0.5,
+            delay: 2.40,
+            duration: 1.5
+        })
+
+        gsap.from("span.size.seven",{
+            ease: 'power1.inOut',
+            y: 30,
+            opacity:0.5,
+            delay: 2.40,
+
+        })
+        gsap.from("span.size.engt",{
+            ease: 'power1.inOut',
+            y: 30,
+            opacity:0.5,
+            delay: 2.45,
+
+        })
+
+        gsap.from("span.size.nine",{
+            ease: 'power1.inOut',
+            y: 30,
+            opacity:0.5,
+            delay: 2.50,
+
+        })
+        gsap.set(".mainimg-data ,.tooglebtn" , {
+            opacity:0  ,
+            x: -50,  
+        })
+        gsap.to(".mainimg-data ,.tooglebtn",{
+            ease: 'power1.inOut',
+            x: 50,
+            opacity:1,
+            delay: 2.40,
+
+        })
+
+        gsap.set(".centertitle h1",{
+            opacity:0,
+            y:200,
+        })
+
+        gsap.set(".centertitle button , .maintitle",{
+            opacity:0,
+            y:-200
+        })
+
+        gsap.to(".centertitle h1",{
+            ease: 'power1.inOut',
+            opacity:1,
+            delay: 2.40,
+            duration:2,
+            y:0
+        })
+
+        gsap.set(".img-hero",{
+
+            top:"-150%"
+        })
+        gsap.to(".img-hero",{
+            ease: 'power1.inOut',
+            top:"55%",
+            delay:2.50,
+            duration:1,
+        })
+
+        gsap.to(".maintitle",{
+            ease: 'power1.inOut',
+            delay:3.40,
+            duration:1,
+            opacity:1.5,
+            y:0,
+            
+        })
+
+        gsap.to(".centertitle button",{
+            delay:4,
+            duration:1.5,
+            ease: 'power1.inOut',
+            opacity:1,
+            y:0,
+           
+            
+        })
+        // swiper js 
+
+        var swiper = new Swiper(".mySwiper", {
+            centeredSlides: true,
+            loop:true,
+            speed:1500,
+
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        $(document).on("click",".mainimg-data img",function(){
+            var imgsrc = $(this).attr("src");
+            $("img.img-hero").attr("src",imgsrc)
+        })
+
+</script>
+
+</body>
+
+</html>
